@@ -1,0 +1,23 @@
+[
+	{
+	"title": "The Warmth of Other Suns",
+  "author": "Isabelle Wilkerson",
+  "year": "2010",
+  "isbn": "4578384738"
+	},
+
+ 	{
+		"title": "HTML & CSS",
+    "author": "John Duckett",
+    "year": "2014",
+    "isbn": "1290394586"
+  },
+
+  {
+    "name": "The Book of Basketball",
+    "author": "Bill Simmons",
+    "year": "2008",
+    "isbn": "0987654321"
+  }
+]
+

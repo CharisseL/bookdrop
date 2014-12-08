@@ -11,24 +11,24 @@
 	<body>
 		<div class="container" ng-controller="BookController as bookCtrl">
 			<h1>My BookDrop</h1>
-			<form name="bookForm" ng-submit="bookForm.$valid && todoCtrl.addNewBook()">
+			<form name="bookForm" ng-submit="bookForm.$valid && bookCtrl.addNewBook()">
 				<div>
 					<label class="control-label">Title</label>
 				 	<input class="form-control" type="text" ng-model="bookCtrl.newBook.title" required>
 				</div>
 				<div>
 					<label class="control-label">Author</label>
-				 	<input class="form-control" type="text" ng-model="bookCtrl.newBook.author" required>
+				 	<input class="form-control" type="text" ng-model="bookCtrl.newBook.author">
 				</div>
 				<div>
 					<label class="control-label">Year</label>
-				 	<input class="form-control" type="text" ng-model="bookCtrl.newBook.year" required>
+				 	<input class="form-control" type="text" ng-model="bookCtrl.newBook.year">
 				</div>
 				<div>
 					<label class="control-label">ISBN</label>
-				 	<input class="form-control" type="text" ng-model="bookCtrl.newBook.isbn" required>
+				 	<input class="form-control" type="text" ng-model="bookCtrl.newBook.isbn">
 				</div>
-				<input type="submit" value="Add my Book" ng disabled="bookForm.$invalid">
+				<input type="submit" value="Add my Book">
 			</form>
 			<table>
 				<thead>
@@ -40,13 +40,13 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="book in bookCtrl.books">
+					<tr ng-repeat="(bookId, book) in bookCtrl.books">
 						<!--	<td><img class="book-img" ng-src="{{book.image}}"</td> --!>
 						<td>{{book.title}}</td>
 						<td>{{book.author}}</td>
 						<td>{{book.year}}</td>
 						<td>{{book.isbn}}</td>
-						<td><button ng-click="bookCtrl.removeBook(book)">Delete</button></td>
+						<td><button ng-click="bookCtrl.removeBook(bookId)">Delete</button></td>
 					</tr>
 				</tbody>
 			</table>

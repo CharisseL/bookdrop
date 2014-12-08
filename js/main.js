@@ -2,38 +2,33 @@
 	'use strict';
 
 	angular.module('bookDropApp', [])
-		.controller('BookController', function(){
+		.controller('BookController', function($http){
 			var bkm = this;
-
-			bkm.books =[
-     	 {
-          title: 'The Warmth of Other Suns',
-          author: 'Isabelle Wilkerson',
-          year: '2010',
-          isbn: '4578384738',
-        },
-        {
-          title: 'HTML & CSS',
-          author: 'John Duckett',
-          year: '2014',
-          isbn: '1290394586',
-        },
-        {
-          name: 'The Book of Basketball',
-          desc: 'Bill Simmons',
-          due: '2008',
-          isbn: '0987654321',
-        }
-      ];
 			
-			bkm.addBook = function(){
-				bkm.books.push(bkm.newBook);
-				bkm.newBook = null;
-			}
+	$http.get('https://bookdrop.firebaseio.com/.json')
+		.success(function(data){
+			console.log(data);
+			bkm.books = data;
+		})
+		.error(function(err){
+			console.log(err);
+		});	
+		
+		bkm.addNewBook = function(){
+			$http.post('https://bookdrop.firebaseio.com/.json', bkm.newBook)
+				.success(function(data){
+					bkm.books[data.name] = bkm.newBook;
+					bkm.newBook = null;
+					console.log('Hello, help!');
+				})
+				.error(function(err){
+					console.log(err);
+				});
+			};
 
-			bkm.removeBook = function(book){
+		/*	bkm.removeBook = function(book){
 				var index =bkm.books.indexOf(book);
 				bkm.books.splice(index,1);
-			}
+			}*/
 		});
 }());
