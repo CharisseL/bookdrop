@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-US" ng-app="bookDropApp">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>BookDrop</title>
+		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/main.css">
+	</head>
+	<body>
+		<div class="container" ng-controller="BookController as bookCtrl">
+			<h1>My BookDrop</h1>
+			<form name="bookForm" ng-submit="bookForm.$valid && todoCtrl.addNewBook()">
+				<div>
+					<label class="control-label">Title</label>
+				 	<input class="form-control" type="text" ng-model="bookCtrl.newBook.title" required>
+				</div>
+				<div>
+					<label class="control-label">Author</label>
+				 	<input class="form-control" type="text" ng-model="bookCtrl.newBook.author" required>
+				</div>
+				<div>
+					<label class="control-label">Year</label>
+				 	<input class="form-control" type="text" ng-model="bookCtrl.newBook.year" required>
+				</div>
+				<div>
+					<label class="control-label">ISBN</label>
+				 	<input class="form-control" type="text" ng-model="bookCtrl.newBook.isbn" required>
+				</div>
+				<input type="submit" value="Add my Book" ng disabled="bookForm.$invalid">
+			</form>
+			<table>
+				<thead>
+					<tr>
+						<th>Book Title</th>
+						<th>Author</th>
+						<th>Year Published</th>
+						<th>ISBN</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="book in bookCtrl.books">
+						<td><img class="book-img" ng-src="{{book.image}}"</td>
+						<td>{{book.title}}</td>
+						<td>{{book.author}}</td>
+						<td>{{book.year}}</td>
+						<td>{{book.isbn}}</td>
+						<td><buttion ng-click="bookCtrl.removeBook(book)">Delete</button></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<script src="bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="bower_components/bootstrap/dist/js.bootstrap.min.js"></script>
+		<script src="bower_components/angular/angular.min.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+</html>	
