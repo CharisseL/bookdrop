@@ -26,9 +26,16 @@
 				});
 			};
 
-		/*	bkm.removeBook = function(book){
-				var index =bkm.books.indexOf(book);
-				bkm.books.splice(index,1);
-			}*/
+		bkm.removeBook = function(bookId){
+				var url = 'https://bookdrop.firebaseio.com/' + bookId + '.json';
+					console.log(bookId)
+					$http.delete(url)
+					.success(function(){
+						delete bkm.books[bookId]
+					})
+						.error(function(err){
+							console.log(err)
+						});
+					}
 		});
 }());
