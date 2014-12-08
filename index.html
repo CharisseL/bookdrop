@@ -41,18 +41,18 @@
 				</thead>
 				<tbody>
 					<tr ng-repeat="book in bookCtrl.books">
-						<td><img class="book-img" ng-src="{{book.image}}"</td>
+						<!--	<td><img class="book-img" ng-src="{{book.image}}"</td> --!>
 						<td>{{book.title}}</td>
 						<td>{{book.author}}</td>
 						<td>{{book.year}}</td>
 						<td>{{book.isbn}}</td>
-						<td><buttion ng-click="bookCtrl.removeBook(book)">Delete</button></td>
+						<td><button ng-click="bookCtrl.removeBook(book)">Delete</button></td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
 		<script src="bower_components/jquery/dist/jquery.min.js"></script>
-		<script src="bower_components/bootstrap/dist/js.bootstrap.min.js"></script>
+		<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 		<script src="bower_components/angular/angular.min.js"></script>
 		<script src="js/main.js"></script>
 	</body>

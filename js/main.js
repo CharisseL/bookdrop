@@ -1,32 +1,39 @@
 ;(function (){
 	'use strict';
 
-	angular.module('bookDropApp', []
+	angular.module('bookDropApp', [])
 		.controller('BookController', function(){
-			var addBook = this;
+			var bkm = this;
 
-			addBook.books =[
--        {
--          title: 'The Warmth of Other Suns,
--          author: 'Isabelle Wilkerson'
--          year: '2010',
--          isbn: '4578384738',
--          image: 'http://i.imgur.com/IJMGmz8.png'
--        },
--        {
--          title: 'HTML & CSS',
--          author: 'John Duckett',
--          year: '2014',
--          isbn: '1290394586',
--          image: 'http://i.imgur.com/4NPS39X.jpg'
--        },
--        {
--          name: 'The Book of Basketball',
--          desc: 'Bill Simmons',
--          due: '2008',
--          isbn: '0987654321',
--          image: 'http://i.imgur.com/VDHV0KT.jpg'
--        }
--      ];
-						
-				
+			bkm.books =[
+     	 {
+          title: 'The Warmth of Other Suns',
+          author: 'Isabelle Wilkerson',
+          year: '2010',
+          isbn: '4578384738',
+        },
+        {
+          title: 'HTML & CSS',
+          author: 'John Duckett',
+          year: '2014',
+          isbn: '1290394586',
+        },
+        {
+          name: 'The Book of Basketball',
+          desc: 'Bill Simmons',
+          due: '2008',
+          isbn: '0987654321',
+        }
+      ];
+			
+			bkm.addBook = function(){
+				bkm.books.push(bkm.newBook);
+				bkm.newBook = null;
+			}
+
+			bkm.removeBook = function(book){
+				var index =bkm.books.indexOf(book);
+				bkm.books.splice(index,1);
+			}
+		});
+}());
