@@ -1,0 +1,20 @@
+<form name="bookForm" ng-submit="bookForm.$valid && edit.addNewBook()">
+	<div>
+		<label class="control-label">Title</label>
+		<input class="form-control" type="text" ng-model="edit.newBook.title" required>
+	</div>
+	<div>
+		<label class="control-label">Author</label>
+		<input class="form-control" type="text" ng-model="edit.newBook.author">
+	</div>
+	<div>
+		<label class="control-label">Year</label>
+		<input class="form-control" type="text" ng-model="edit.newBook.year">
+	</div>
+	<div>
+		<label class="control-label">ISBN</label>
+		<input class="form-control" type="text" ng-model="edit.newBook.isbn">
+	</div>
+	<input type="submit" value="Add my Book">
+</form>
+

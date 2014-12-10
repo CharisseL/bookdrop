@@ -1,0 +1,25 @@
+<table>
+	<thead>
+		<tr>
+			<th>Book Title</th>
+			<th>Author</th>
+			<th>Year Published</th>
+			<th>ISBN</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="(bookId, book) in bookCtrl.books">
+			<td><img class="book-img" ng-src="{{book.image}}"</td> 
+			<td>{{book.title}}</td>
+			<td>{{book.author}}</td>
+			<td>{{book.year}}</td>
+			<td>{{book.isbn}}</td>
+			<td>
+				<a class="btn btn-primary" href="/#/{{bookId}}">Show</a>
+				<a class="btn btn-primary" href="/#/{{bookId}}/edit">Edit</a>
+				<button ng-click="bookCtrl.removeBook(bookId)">Delete</button>
+			</td>
+		</tr>
+	</tbody>
+</table>
+

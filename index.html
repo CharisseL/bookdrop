@@ -9,51 +9,18 @@
 		<link rel="stylesheet" href="css/main.css">
 	</head>
 	<body>
-		<div class="container" ng-controller="BookController as bookCtrl">
+		<div class="container">
 			<h1>My BookDrop</h1>
-			<form name="bookForm" ng-submit="bookForm.$valid && bookCtrl.addNewBook()">
-				<div>
-					<label class="control-label">Title</label>
-				 	<input class="form-control" type="text" ng-model="bookCtrl.newBook.title" required>
-				</div>
-				<div>
-					<label class="control-label">Author</label>
-				 	<input class="form-control" type="text" ng-model="bookCtrl.newBook.author">
-				</div>
-				<div>
-					<label class="control-label">Year</label>
-				 	<input class="form-control" type="text" ng-model="bookCtrl.newBook.year">
-				</div>
-				<div>
-					<label class="control-label">ISBN</label>
-				 	<input class="form-control" type="text" ng-model="bookCtrl.newBook.isbn">
-				</div>
-				<input type="submit" value="Add my Book">
-			</form>
-			<table>
-				<thead>
-					<tr>
-						<th>Book Title</th>
-						<th>Author</th>
-						<th>Year Published</th>
-						<th>ISBN</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr ng-repeat="(bookId, book) in bookCtrl.books">
-						<!--	<td><img class="book-img" ng-src="{{book.image}}"</td> --!>
-						<td>{{book.title}}</td>
-						<td>{{book.author}}</td>
-						<td>{{book.year}}</td>
-						<td>{{book.isbn}}</td>
-						<td><button ng-click="bookCtrl.removeBook(bookId)">Delete</button></td>
-					</tr>
-				</tbody>
-			</table>
+			<a class="btn btn-primary" href="/#/">All Books</a>
+			<a class="btn btn-primary" href="/#/new">New Books</a>
+			<div ng-view></div> 
 		</div>
 		<script src="bower_components/jquery/dist/jquery.min.js"></script>
 		<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 		<script src="bower_components/angular/angular.min.js"></script>
+		<script src="bower_components/angular-route/angular-route.min.js"></script>
+		<script src="bower_components/angular-animate/angular-animate.js"></script>
+		<script src="bower_components/angular-strap/dist/angular-strap.min.js"></script>
 		<script src="js/main.js"></script>
 	</body>
 </html>	
